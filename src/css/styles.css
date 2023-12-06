@@ -1,6 +1,7 @@
 .loader {
     display: block;
-    position: relative;
+    text-align: center;
+
     height: 20px;
     width: 140px;
     background-image:
@@ -12,6 +13,9 @@
     background-size: 20px auto;
     background-position: 0 0, 40px 0, 80px 0, 120px 0;
     animation: pgfill 1s linear infinite;
+    padding: auto;
+    margin: 0 auto;
+
 }
 
 @keyframes pgfill {
@@ -43,17 +47,26 @@
 }
 
 .breed-select {
-    position: absolute;
-    right: 10%;
-    top: 5%;
-    width: 100%;
+    width: 400px;
+    padding: 30px;
+    font-size: 20px;
+    margin: auto;
+
 }
 
+.cat-window {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+
+
 .cat-info {
-    margin: 50px 50px 50px 100px;
-    padding: 30px;
     border: 2px solid #fafafa;
-    max-width: 400px;
+    max-width: 500px;
     font-weight: 500;
     font-size: 18px;
+    text-align: center;
+    margin: auto;
 }

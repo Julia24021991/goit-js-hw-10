@@ -3,11 +3,9 @@ import { fetchBreeds, fetchCatByBreed } from './cat-api';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import 'slim-select/dist/slimselect.css';
 
-const refs = {
-    select: document.querySelector('.breed-select'),
-    catsInfo: document.querySelector('.cat-info'),
-    loader: document.querySelector('.loader'),
-};
+const select = document.querySelector('.breed-select');
+const catsInfo = document.querySelector('.cat-info');
+const loader = document.querySelector('.loader');
 
 Notify.init({
     position: 'center-top',
@@ -17,10 +15,10 @@ Notify.init({
     fontFamily: 'Arial, sans-serif',
 });
 
-refs.select.classList.add('is-hidden');
-refs.catsInfo.classList.add('is-hidden');
+select.classList.add('is-hidden');
+catsInfo.classList.add('is-hidden');
 
-refs.select.addEventListener('change', selectChangeHandler);
+select.addEventListener('change', selectChangeHandler);
 
 showFetchedBreeds();
 
@@ -28,9 +26,9 @@ function selectChangeHandler(event) {
     const selectedCatIndex = event.currentTarget.selectedIndex;
     const selectedId = event.currentTarget[selectedCatIndex].value;
 
-    refs.loader.classList.remove('is-hidden');
-    refs.catsInfo.classList.add('is-hidden');
-    refs.catsInfo.innerHTML = '';
+    loader.classList.remove('is-hidden');
+    catsInfo.classList.add('is-hidden');
+    catsInfo.innerHTML = '';
 
     showFetchedCatBreed(selectedId);
 }
@@ -38,7 +36,7 @@ function selectChangeHandler(event) {
 function showFetchedBreeds() {
     fetchBreeds()
         .then(breeds => {
-            refs.select.insertAdjacentHTML(
+            select.insertAdjacentHTML(
                 'beforeend',
                 createMarkup(breeds.data)
             );
@@ -50,11 +48,11 @@ function showFetchedBreeds() {
                 },
             });
 
-            refs.loader.classList.add('is-hidden');
-            refs.select.classList.remove('is-hidden');
+            loader.classList.add('is-hidden');
+            select.classList.remove('is-hidden');
         })
         .catch(() => {
-            refs.loader.classList.add('is-hidden');
+            loader.classList.add('is-hidden');
             Notify.warning('Failed to request data! Choose another breed.');
         });
 }
@@ -62,12 +60,12 @@ function showFetchedBreeds() {
 function showFetchedCatBreed(selectedId) {
     fetchCatByBreed(selectedId)
         .then(cat => {
-            refs.loader.classList.add('is-hidden');
-            refs.catsInfo.classList.remove('is-hidden');
-            refs.catsInfo.innerHTML = createCatMarkup(cat.data[0]);
+            loader.classList.add('is-hidden');
+            catsInfo.classList.remove('is-hidden');
+            catsInfo.innerHTML = createCatMarkup(cat.data[0]);
         })
         .catch(() => {
-            refs.catsInfo.classList.add('is-hidden');
+            catsInfo.classList.add('is-hidden');
             Notify.warning('Failed to request data! Choose another breed.');
         });
 }
