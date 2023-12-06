@@ -75,8 +75,8 @@ function createCatMarkup({ breeds, url }) {
     return `
       <img src="${url}" alt="${name}" height="300" class="cat-img">
       <h2 class="cat-name">${name}</h2>
-      <p class="cat-description"><span>Description:</span> ${description}</p>
-      <p class="cat-temperament"><span>Temperament:</span> ${temperament}</p>
+      <p class="cat-description"><span class="cat-options">Description:</span> ${description}</p>
+      <p class="cat-temperament"><span class="cat-options">Temperament:</span> ${temperament}</p>
   `;
 }
 

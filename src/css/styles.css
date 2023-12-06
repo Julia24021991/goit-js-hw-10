@@ -14,7 +14,7 @@
     background-position: 0 0, 40px 0, 80px 0, 120px 0;
     animation: pgfill 1s linear infinite;
     padding: auto;
-    margin: 0 auto;
+    margin: auto;
 
 }
 
@@ -48,9 +48,11 @@
 
 .breed-select {
     width: 400px;
-    padding: 30px;
+    padding: 20px;
     font-size: 20px;
-    margin: auto;
+    margin: 30px auto;
+    border-radius: 50%;
+    text-align: center;
 
 }
 
@@ -62,6 +64,7 @@
 
 
 
+
 .cat-info {
     border: 2px solid #fafafa;
     max-width: 500px;
@@ -69,4 +72,13 @@
     font-size: 18px;
     text-align: center;
     margin: auto;
+}
+
+.cat-options {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+body {
+    background-color: burlywood;
 }
